@@ -1,0 +1,17 @@
+FROM dtec.pro/dt/esp8266:1.22
+
+LABEL company="dtec" \
+      maintainer="Denis Muratov xeronm@gmail.com" \
+      example="docker run --name esp8266 -it --rm -v .:/src/project dtec.pro/dt/esp8266:1.22-p" \
+      description="Toolchain for xtensa-lx106 based on crosstool-NG 1.22.x" \
+      com.name="dtec/esp8266" \
+      com.version="1.22-p" \
+      com.release-date="2018-06-05"
+ 
+WORKDIR /src/project
+
+ENV PATH=/src/esp-open-sdk/xtensa-lx106-elf/bin:$PATH
+
+VOLUME /src/project
+
+ENTRYPOINT [ "/bin/bash" ]
